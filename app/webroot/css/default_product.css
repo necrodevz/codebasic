@@ -3360,6 +3360,7 @@ font-size:22px;
 
 .span8 {
     width: 620px !important;
+	float:left;
 }
 
 [class*="span"] {
