@@ -18,7 +18,7 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       app.Model
  * @since         CakePHP(tm) v 0.2.9
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Model', 'Model');
@@ -32,14 +32,4 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
-
-    public function save($data = null, $validate = true, $fieldList = array()) 
-	{
-        // Clear modified field value before each save
-        $this->set($data);
-        if (isset($this->data[$this->alias]['modified'])) {
-            unset($this->data[$this->alias]['modified']);
-        }
-        return parent::save($this->data, $validate, $fieldList);
-    }
 }

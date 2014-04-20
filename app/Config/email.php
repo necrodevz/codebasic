@@ -17,7 +17,7 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       app.Config
  * @since         CakePHP(tm) v 2.0.0
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  *
  * Email configuration class.
  * You can specify multiple configurations for production, development and testing.
@@ -46,12 +46,12 @@ class EmailConfig {
 
 	public $smtp = array(
 		'transport' => 'Smtp',
-		'from' => array('no-reply@discoverpost.com' => 'Discoverpost'),
-		'host' => 'ssl://email-smtp.us-east-1.amazonaws.com',
-		'port' => 465,
+		'from' => array('site@localhost' => 'My Site'),
+		'host' => 'localhost',
+		'port' => 25,
 		'timeout' => 30,
-		'username' => 'AKIAJRMCXMXVRLPLM4PQ',
-		'password' => 'AhLTcYl/iYyWaX6oxFBH1u8AjLeEWBztRcjFCWtL2r9z',
+		'username' => 'user',
+		'password' => 'secret',
 		'client' => null,
 		'log' => false,
 		//'charset' => 'utf-8',

@@ -1428,8 +1428,6 @@ class HtmlHelperTest extends CakeTestCase {
 
 /**
  * Test the array form of $startText
- *
- * @return void
  */
 	public function testGetCrumbFirstLink() {
 		$result = $this->Html->getCrumbList(null, 'Home');
@@ -1771,8 +1769,6 @@ class HtmlHelperTest extends CakeTestCase {
 
 /**
  * Test the inline and block options for meta()
- *
- * @return void
  */
 	public function testMetaWithBlocks() {
 		$this->View->expects($this->at(0))
@@ -2032,6 +2028,7 @@ class HtmlHelperTest extends CakeTestCase {
 /**
  * testCrumbList method
  *
+ *
  * @return void
  */
 	public function testCrumbList() {
@@ -2063,8 +2060,6 @@ class HtmlHelperTest extends CakeTestCase {
 
 /**
  * Test getCrumbList startText
- *
- * @return void
  */
 	public function testCrumbListFirstLink() {
 		$this->Html->addCrumb('First', '#first');

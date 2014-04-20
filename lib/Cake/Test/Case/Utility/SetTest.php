@@ -1352,8 +1352,6 @@ class SetTest extends CakeTestCase {
 
 /**
  * Test that extract() + matching can hit null things.
- *
- * @return void
  */
 	public function testExtractMatchesNull() {
 		$data = array(

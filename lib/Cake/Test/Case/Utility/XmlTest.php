@@ -206,7 +206,7 @@ class XmlTest extends CakeTestCase {
 /**
  * test build with a single empty tag
  *
- * @return void
+ * return void
  */
 	public function testBuildEmptyTag() {
 		try {
@@ -553,7 +553,6 @@ XML;
  * testFromArrayFail method
  *
  * @dataProvider invalidArrayDataProvider
- * @return void
  */
 	public function testFromArrayFail($value) {
 		try {
@@ -1124,7 +1123,6 @@ XML;
  *
  * @dataProvider invalidToArrayDataProvider
  * @expectedException XmlException
- * @return void
  */
 	public function testToArrayFail($value) {
 		Xml::toArray($value);

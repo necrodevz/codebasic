@@ -17,7 +17,7 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       app.Controller
  * @since         CakePHP(tm) v 0.2.9
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 App::uses('AppController', 'Controller');
 
@@ -45,12 +45,6 @@ class PagesController extends AppController {
  */
 	public $uses = array();
 
-	
-	function beforeFilter()
-	{
-		parent::beforeFilter();
-		$this->Auth->allow('display', 'home');
-	}
 /**
  * Displays a view
  *
@@ -75,21 +69,11 @@ class PagesController extends AppController {
 		if (!empty($path[$count - 1])) {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
-		
-		$this->layout = Configure::read('layout.'.$page); 
-
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		$this->render(implode('/', $path));
 	}
 	
-	public function info() {
-         $this->layout='info';
-	}
-	
-	public function home() {
+		public function home() {
 
-	}
-	
-		public function add_event() {
 	}
 }

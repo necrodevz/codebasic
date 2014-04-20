@@ -1,189 +1,226 @@
 <?php
+App::uses('AuthComponent', 'Controller/Component');
+App::uses('CakeSession', 'Model/Datasource');
 
-App::uses('AuthComponent', 'Controller/Component', 'Email');
 
-class User extends AppModel
-{
-	/**
-	 * Standard validation behaviour
-	 */
-	public $hasOne = array('Profile', 'Contact');
-	public $hasMany = array('Product', 'MyTrip');
+class User extends AppModel {
+
+	// public $hasOne = array('Product','Children'=>array(
+	// 	'className'=>'User',
+	// 	'foreignKey'=>'parent_id'
+	// 	));
 	
-	var $validate = array(
-		'first_name' => array(
-			'length' => array(
-				'rule'      => array('notEmpty','minLength', 2),
-				'message'   => 'Please enter your name (more than 2 chars)',
-				'required'  => true,
+	// public $belongsTo = array('Group','Parent'=>array(
+	// 	'className'=>'User',
+	// 	'foreignKey'=>'parent_id'
+	// 	));
+
+	public $avatarUploadDir = 'img/avatars';
+    
+	public $validate = array(
+        'username' => array(
+            'nonEmpty' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A username is required',
+				'allowEmpty' => false
+            ),
+			'between' => array( 
+				'rule' => array('between', 5, 15), 
+				'required' => true, 
+				'message' => 'Usernames must be between 5 to 15 characters'
 			),
-		),
-		'last_name' => array(
-			'length' => array(
-				'rule'      => array('notEmpty','minLength', 2),
-				'message'   => 'Please enter your name (more than 2 chars)',
-				'required'  => true,
+			 'unique' => array(
+				'rule'    => array('isUniqueUsername'),
+				'message' => 'This username is already in use'
 			),
-		),
-		'middle_name' => array(
-			'length' => array(
-				'rule'      => array('minLength', 2),
-				'message'   => 'Please enter your last name (more than 2 chars)',
-				'required'  => false,
+			'alphaNumericDashUnderscore' => array(
+				'rule'    => array('alphaNumericDashUnderscore'),
+				'message' => 'Username can only be letters, numbers and underscores'
 			),
-		),
-		'title' => array(
-			'length' => array(
-				'rule'      => array('inList', array('mr', 'miss', 'mrs')),
-				'message'   => 'Please enter your title',
-				'required'  => false,
-			),
-		),
-		'email' => array(
-			'email' => array(
-				'rule'      => array('notEmpty','email'),
-				'message'   => 'Must be a valid email address',
-			),
-			'unique' => array(
-				'rule'      => 'isUnique',
-				'message'   => 'Already taken',
-			),
-		),
-		'password' => array(
-			'empty' => array(
-				'rule'      => 'notEmpty',
-				'message'   => 'Must not be blank',
-				'required'  => true,
-			),
-		),
+        ),
+        'password' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'A password is required'
+            ),
+			'min_length' => array(
+				'rule' => array('minLength', '6'),  
+				'message' => 'Password must have a mimimum of 6 characters'
+			)
+        ),
+		
 		'password_confirm' => array(
-			'compare'    => array(
-				'rule'      => array('password_match', 'password', false),
-				'message'   => 'The password you entered does not match',
-				'required'  => true,
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Please confirm your password'
+            ),
+			 'equaltofield' => array(
+				'rule' => array('equaltofield','password'),
+				'message' => 'Both passwords must match.'
+			)
+        ),
+		
+		'email' => array(
+			'required' => array(
+				'rule' => array('email', true),    
+				'message' => 'Please provide a valid email address.'    
 			),
-			'length' => array(
-				'rule'      => array('between', 6, 20),
-				'message'   => 'Use between 6 and 20 characters',
+			 'unique' => array(
+				'rule'    => array('isUniqueEmail'),
+				'message' => 'This email is already in use',
 			),
-			'empty' => array(
-				'rule'      => 'notEmpty',
-				'message'   => 'Must not be blank',
-			),
+			'between' => array( 
+				'rule' => array('between', 6, 60), 
+				'message' => 'Usernames must be between 6 to 60 characters'
+			)
 		),
-	);
+        'role' => array(
+            'valid' => array(
+                'rule' => array('inList', array('manager', 'artiste', 'fan')),
+                'message' => 'Please enter a valid role',
+                'allowEmpty' => false
+            )
+        ),
+		
+		
+		'password_update' => array(
+			'min_length' => array(
+				'rule' => array('minLength', '6'),   
+				'message' => 'Password must have a mimimum of 6 characters',
+				'allowEmpty' => true,
+				'required' => false
+			)
+        ),
+		'password_confirm_update' => array(
+			 'equaltofield' => array(
+				'rule' => array('equaltofield','password_update'),
+				'message' => 'Both passwords must match.',
+				'required' => false,
+			)
+        )
 
+		
+    );
 	
-	public function beforeSave($options = array()) {
+
+public function addArtiste($postData = null) {
+	if (!empty($postData)) {
+		#$postData['User']['verified'] = 1;
+		#$postData['User']['group_id'] = 5;
+		#$postData['User']['parent_id'] = CakeSession::read("Auth.User.id");
+
+		$this->create();
+		if ($this->save($postData)) {
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+
+		/**
+	 * Before isUniqueUsername
+	 * @param array $options
+	 * @return boolean
+	 */
+	function isUniqueUsername($check) {
+
+		$username = $this->find(
+			'first',
+			array(
+				'fields' => array(
+					'User.id',
+					'User.username'
+				),
+				'conditions' => array(
+					'User.username' => $check['username']
+				)
+			)
+		);
+
+		if(!empty($username)){
+			if($this->data[$this->alias]['id'] == $username['User']['id']){
+				return true; 
+			}else{
+				return false; 
+			}
+		}else{
+			return true; 
+		}
+    }
+
+	/**
+	 * Before isUniqueEmail
+	 * @param array $options
+	 * @return boolean
+	 */
+	function isUniqueEmail($check) {
+
+		$email = $this->find(
+			'first',
+			array(
+				'fields' => array(
+					'User.id'
+				),
+				'conditions' => array(
+					'User.email' => $check['email']
+				)
+			)
+		);
+
+		if(!empty($email)){
+			if($this->data[$this->alias]['id'] == $email['User']['id']){
+				return true; 
+			}else{
+				return false; 
+			}
+		}else{
+			return true; 
+		}
+    }
+	
+	public function alphaNumericDashUnderscore($check) {
+        // $data array is passed using the form field name as the key
+        // have to extract the value to make the function generic
+        $value = array_values($check);
+        $value = $value[0];
+
+        return preg_match('/^[a-zA-Z0-9_ \-]*$/', $value);
+    }
+	
+	public function equaltofield($check,$otherfield) 
+    { 
+        //get name of field 
+        $fname = ''; 
+        foreach ($check as $key => $value){ 
+            $fname = $key; 
+            break; 
+        } 
+        return $this->data[$this->name][$otherfield] === $this->data[$this->name][$fname]; 
+    } 
+
+	/**
+	 * Before Save
+	 * @param array $options
+	 * @return boolean
+	 */
+	 public function beforeSave($options = array()) {
+		// hash our password
 		if (isset($this->data[$this->alias]['password'])) {
 			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
 		}
-		return true;
-	}
-
-	/**
-	 * Extra form dependent validation rules
-	 */
-	var $validateChangePassword = array(
-		'_import' => array('password', 'password_confirm'),
-		'password_old' => array(
-			'correct' => array(
-				'rule'      => 'password_old',
-				'message'   => 'Does not match',
-				'required'  => true,
-			),
-			'empty' => array(
-				'rule'      => 'notEmpty',
-				'message'   => 'Must not be blank',
-			),
-		),
-	);
-	
-	var $validateUserGeneralInfo = array(
-		'_import' => array('first_name', 'last_name', 'middle_name', 'title'),
-	);
-
-	/**
-	  * Hold the current logged in user during change of password
-	  */
-	var $current_user_id;
-
-	/**
-	 * Dynamically adjust our validation behaviour
-	 *
-	 * Look for an _import key in new ruleset, and import
-	 * those rules from the base validation ruleset
-	 *
-	 * @param   string  array key of the validation ruleset to use
-	 */
-	function useValidationRules($key)
-	{
-		$variable = 'validate' . $key;
-		$rules = $this->$variable;
-
-		if (isset($rules['_import'])) {
-			foreach ($rules['_import'] as $key) {
-				$rules[$key] = $this->validate[$key];
-			}
-			unset($rules['_import']);
+		
+		// if we get a new password, hash it
+		if (isset($this->data[$this->alias]['password_update'])) {
+			$this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password_update']);
 		}
-
-		$this->validate = $rules;
-	}
-
-	/**
-	 * Ensure password matches the user session
-	 *
-	 * @param   array   data provided by the controller
-	 */
-	function password_old($data)
-	{
-		$password = $this->field('password',
-			array('User.id' => $this->current_user_id));
-		//debug($this);
-		return $password ===
-			Security::hash($data['password_old'], null, true);
-	}
-
-	/**
-	 * Ensure two password fields match
-	 *
-	 * @param   array   data provided by the controller
-	 * @param   string  the original (already hashed) password fieldname
-	 * @param   bool    whether the password field has been hashed,
-	 *                  only hashed when a username input is present
-	 */
-	function password_match($data, $password_field, $hashed = true)
-	{
-		$password  = $this->data[$this->alias][$password_field];
-		$keys = array_keys($data);
-		$password_confirm = $hashed ?
-			  AuthComponent::password($data[$keys[0]], null, true) :
-			  $data[$keys[0]];
-		return $password === $password_confirm;
-	}
 	
-	/**
-	 * Generate a random pronounceable password
-	 */
-	function generatePassword($length = 10) {
-		// Seed
-		srand((double) microtime()*1000000);
-		
-		$vowels = array('a', 'e', 'i', 'o', 'u');
-		$cons = array('b', 'c', 'd', 'g', 'h', 'j', 'k', 'l', 'm', 'n',
-			'p', 'r', 's', 't', 'u', 'v', 'w', 'tr',
-			'cr', 'br', 'fr', 'th', 'dr', 'ch', 'ph',
-			'wr', 'st', 'sp', 'sw', 'pr', 'sl', 'cl');
-		
-		$num_vowels = count($vowels);
-		$num_cons = count($cons);
-		
-		$password = '';
-		for ($i = 0; $i < $length; $i++){
-			$password .= $cons[rand(0, $num_cons - 1)] . $vowels[rand(0, $num_vowels - 1)];
-		}
-		
-		return substr($password, 0, $length);
-	}   
+		// fallback to our parent
+		return parent::beforeSave($options);
+	}
+
 }
+
+?>

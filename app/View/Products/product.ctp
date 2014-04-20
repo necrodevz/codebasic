@@ -23,7 +23,7 @@
 						if($product['Image'][$i]['position'] == 0)
 							echo $product['Image'][$i]['image'];
 					}?>') no-repeat; background-size:cover;
-					width:100%;
+					width:100% !important;
 						  }
    html  {
    width:100%;
@@ -220,7 +220,7 @@
 						   <div class="framed2-header framed2-header-small">
 							  Role Model
 						   </div>
-						   <div style="padding: 20px 20px 0 20px; color:#333; font-size:16px">
+						   <div style="padding: 20px 20px 0 20px; color:#ccc font-size:16px">
 						   	 <p><?php echo $product['Product']['role_model']; ?> </p>
 						   </div>
 						</div>

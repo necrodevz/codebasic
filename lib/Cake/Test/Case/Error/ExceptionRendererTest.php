@@ -270,8 +270,6 @@ class ExceptionRendererTest extends CakeTestCase {
 
 /**
  * test that helpers in custom CakeErrorController are not lost
- *
- * @return void
  */
 	public function testCakeErrorHelpersNotLost() {
 		$testApp = CAKE . 'Test' . DS . 'test_app' . DS;

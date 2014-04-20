@@ -18,10 +18,9 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       app.Controller
  * @since         CakePHP(tm) v 0.2.9
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 App::uses('Controller', 'Controller');
-App::uses('CakeEmail', 'Network/Email');
 
 /**
  * Application Controller
@@ -34,117 +33,39 @@ App::uses('CakeEmail', 'Network/Email');
  */
 class AppController extends Controller {
 
-	public $helpers = array('Js', 'Html', 'MyHtml');
-	
-	public $SHOW_ALL = false;
-	
+	// added the debug toolkit
+	// sessions support
+	// authorization for login and logut redirect
 	public $components = array(
+		'DebugKit.Toolbar',
 		'Session',
-		'AppAuth' => array(
-			'loginRedirect' => array('controller' => 'my_trips', 'action' => 'index'),
-			//'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
-			'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
-			'authorize' => array('Controller'), // Added this line
-			'authenticate' => array(
-				'Form' => array(
-					'fields' => array('username' => 'email'),
-				)
-			)
-		)
-	);
-	
-	protected function _f($message = null, $element = 'default')
-	{
-		if($message)
-		{
-			$this->Session->setFlash($message, $element);
-		}
-	}
-	
-	public function beforeFilter() {
-	
-		$this->Auth->autoRedirect = false;
-		$this->set('Auth',$this->Auth);
-	}
-	
-    public function beforeRender()
-    {
-		//check if user is verified
-		if ($this->Auth->user() && $this->Auth->user('role') != 'admin' && $this->Auth->user('verified') == false) 
-		{
-			//redirect user to verify email if not verified
-			$this->Auth->logout();
-			$this->redirect(array('controller' => 'users', 'action' => 'need_verify_email'));
-		}
-		
-		//change flash message default
-		if ($this->Session->check('Message.flash')) {
-			$flash = $this->Session->read('Message.flash');
-
-			if ($flash['element'] == 'default') {
-				$flash['element'] = 'flash_success';
-				$this->Session->write('Message.flash', $flash);
-			}
-		}
-
-    }
-	
-	public function getZone($zone = null)
-	{
-	
-		$changeZone = array (
-		  'Pacific/Honolulu' => 'Hawaii',
-		  'America/Anchorage' => 'Alaska',
-		  'America/Los_Angeles' => 'Pacific Time (US & Canada)',
-		  'America/Phoenix' => 'Arizona',
-		  'America/Denver' => 'Mountain Time (US & Canada)',
-		  'America/Chicago' => 'Central Time (US & Canada)',
-		  'America/New_York' => 'Eastern Time (US & Canada)',
-		  'America/Indiana/Indianapolis' => 'Indiana (East)'
-		);
-	
-		if($zone != NULL)
-		{
-			if (array_key_exists($zone, $changeZone))
-			{
-				return $changeZone[$zone];
-			}
-			
-			return $zone;
-		}
-	}
-	
+        'Auth' => array(
+            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+			'authError' => 'You must be logged in to view this page.',
+			'loginError' => 'Invalid Username or Password entered, please try again.'
+ 
+        ));
 	
 	public function constructClasses() {
-        parent::constructClasses();
-        $this->Auth = $this->AppAuth;
+
+    if(Configure::read('debug') >= 1):
+    $this->components[] = 'DebugKit.Toolbar';
+    endif;
+
+    parent::constructClasses();
+}
+		
+	
+	// only allow the login controllers only
+	public function beforeFilter() {
+        $this->Auth->allow('login');
     }
 	
 	public function isAuthorized($user) {
-		if($this->Auth->user('role') == 'admin') {
-			//$this->Auth->allow('*');
-			return true;
-		} 
-		elseif($this->Auth->user('role') == 'user') { 
-			//$this->Auth->allow('index');
-			return false;
-		}
+		// Here is where we should verify the role and give access based on role
+		
+		return true;
 	}
 	
-	public function sendJson($response, $status = 200, $element = null)
-	{
-		// Make sure no debug info is printed
-		//Configure::write('debug', 0); // Turn this to 2 for debugging
-		// Set the data for view
-		$this->set('response', $response);
-		// We will use no layout
-		$this->layout = '';
-		//set the status of the response
-		$this->response->statusCode($status);
-		// Render the json element 
-		if($element != null)
-			$this->render('/Elements' . DS . $element);
-		else
-			$this->render('/Elements' . DS . 'json');
-	}
 }

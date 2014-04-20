@@ -1,58 +1,39 @@
-
-<?php 
-
- foreach($products as $product)
- {
- ?>
- 
-   <div class="span4 trip-card offset1">
-      <a href="/product/<?php echo $product['Product']['url']; ?>">
-         <div style="background:url('/files/products/<?php 
-		 
-		 for($i=0; $i < sizeof($product['Image']); $i++)
-		 {
-			if($product['Image'][$i]['position'] == 0)
-				echo $product['Image'][$i]['image'];
-		 }
-		 
-		 ?>') no-repeat;background-size:cover; background-size:430px;" class="card">
-            <div class="banner">
-               <div class="title"><?php echo $product['Product']['name']; ?></div>
-               <div class="tagline"><?php echo $product['Product']['address']; ?></div>
-			   
-			   <div class="amount-all">
-			     <div class="amount-title-div">
-			      <span><?php if(!empty($product['Product']['price_low']))echo '<span class="amount-title">Regular</span>'; else echo ''; ?></span>
-			     </div>
-                 <div class="amount">
-                  <span class="price_main"><?php if(!empty($product['Product']['price_low']))echo '$'. $product['Product']['price_low']; else echo ''; ?></span>
-                 </div>
-			   
-			     <div class="amount-title-div">
-			      <span><?php if(!empty($product['Product']['price_high']))echo '<span class="amount-title">VIP</span>'; else echo ''; ?></span>
-			     </div>
-                 <div class="amount">
-                  <span class="price_main"><?php if(!empty($product['Product']['price_high']))echo '$'. $product['Product']['price_high']; else echo ''; ?></span>
-                 </div>
-				 
-				 <div class="amount-title-div">
-			      <span><?php if(!empty($product['Product']['children']))echo '<span class="amount-title">Children</span>'; else echo ''; ?></span>
-			     </div>
-                 <div class="amount">
-                  <span class="price_main"><?php if(!empty($product['Product']['children']))echo '$'. $product['Product']['children']; else echo ''; ?></span>
-                 </div>
-				 
-			   </div>
-			   
-			   <div class="date">
-			     <span><i class='icon-time icon-white'></i></span><span><?php echo $product['Product']['start_date']; ?></span>
-			   </div>
-               <div class="clearfix"></div>
-            </div>
-         </div>
-      </a>
-   </div>
-   
-   <?php
-   }
-?>
+<div class="container-fluid">
+    <div class="container-fluid-child">
+	    <div class="title-area">
+		    <div class="title-main">
+			    <h2>
+				   Artistes List
+				</h2>
+			</div>
+			<div class="title-secondary">
+			    <h3>
+				    List of artistes on Musico
+				</h3>
+			</div>
+		</div>
+		<a href="#">
+        <div class="item-parent">
+		    <div class="item-child" style="background:url('http://chatychaty.com/wp-content/uploads/2013/01/chronixx.jpg') no-repeat -20px center/ 325px auto;">
+			    <div class="banner">
+				    <h2 class="banner-text">Chronixx</h2>
+				</div>
+			</div>
+		</div>
+		</a>
+        <div class="item-parent">
+		    <div class="item-child" style="background:url('http://www.reggaeholland.com/wp-content/uploads/beenie_man.jpg') no-repeat -20px center/ 325px auto;">
+			    <div class="banner">
+				    <h2 class="banner-text">Beenie Man</h2>				    
+				</div>
+			</div>
+		</div>
+        <div class="item-parent">
+		    <div class="item-child" style="background:url('http://1.bp.blogspot.com/_xucc9SugiUE/TDipDV9halI/AAAAAAAADX4/8yoqYOwMw5g/s1600/Etana+pic.jpg') no-repeat -20px center/ 325px auto;">
+			    <div class="banner">
+				    <h2 class="banner-text">Etana</h2>				    
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

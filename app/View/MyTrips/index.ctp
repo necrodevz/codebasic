@@ -24,11 +24,11 @@ margin-left:186px;
 	   <div class='span8'>
 		   <div class='framed2 framed2-flat'>
 		   	<div class="trip-framed-header trip-framed-header-rounded framed2-header">
-			   My Favourites
+			   My Home
 			</div>
 			<div>
-			    <div style="color:#333; font-size:15px; font-family: 'Raleway', sans-serif" class="trip-framed-header trip-framed-header-rounded framed2-header">
-				   My Favourites is where you store your favourite events for quick access
+			    <div style="color:#999; font-size:15px; font-family: 'Lato', sans-serif" class="trip-framed-header trip-framed-header-rounded framed2-header">
+				   This is your home portal where everything is stored
 				</div>
 			    <div class="fav-header">
 				   <div class="dashboard-container">
@@ -102,53 +102,21 @@ margin-left:186px;
 			<?php endforeach; ?>
 		</ul>
 		<?php endif; ?>
+		
+					 <?php if ($category == 0)  {
+			 echo $this->Html->div('notice', 'start liking artistes to populate this area');
+			 }  ?>
 	<?php endforeach; ?>
 </div>
 				</div>
 				
 				
 			</div>
+			
 		   </div>         			
 	   </div>
 	   
-	   
-	   <div class='span4 fav-pro '>
-		  <div class="trip-framed framed2 framed2-flat">
-		   	<div class="trip-framed-header trip-framed-header-rounded framed2-header">
-			   My Profile
-			</div>
-			    <div style="padding:8px">
-				  <div class=" control-group">
-					 <label class="control-label">Name</label>
-					 <div class="controls">
-					 
-					 </div>
-				  </div>
-				  <div class=" control-group">
-					 <label class="control-label">Contact Number</label>
-					 <div class="controls">
-					 
-					 </div>
-				  </div>
-				  <div class=" control-group">
-					 <label class="control-label">Email Address</label>
-					 <div class="controls">
-					 
-					 </div>
-				  </div>
-				  <div class=" control-group">
-					 <label class="control-label">Time Zone</label>
-					 <div class="controls">
-					 
-					 </div>
-				  </div>
-				  <div class=" control-group">
-					 <div class="controls">
-					    <a href="/users" class="btn-success edit-pro" style="padding: 4px 12px; margin-top:9px; color:#fff;">Edit Profile</a>
-					 </div>
-				  </div>				  
-                </div>				  
-		  </div>
-    </div>
+	   <?php echo $this->element('dash_manager'); ?>
+
 </div>
 </div>

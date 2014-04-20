@@ -37,8 +37,9 @@
 	?>
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link href='http://fonts.googleapis.com/css?family=Raleway:200|Niconne' rel='stylesheet' type='text/css'>
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -126,12 +127,12 @@ source: availableTags
 	  </li>
 	  <li class='divider-vertical'></li>
       <?php if($Auth->user()):?>
-                     <li><?php echo $this->MyHtml->userlink('My Favourites', '/home', array('class'=>'user-link')); ?></li>
+                     <li><?php echo $this->MyHtml->userlink('My Fanpage', '/home', array('class'=>'user-link')); ?></li>
 					<?php else: ?>
-                     <li><?php echo $this->MyHtml->userlink('My Favourites', '/users/login', array('class'=>'user-link')); ?></li>
+                     <li><?php echo $this->MyHtml->userlink('My Fanpage', '/home', array('class'=>'user-link')); ?></li>
 					<?php endif; ?>
                      <!--<li class='divider-vertical'></li>-->
-					 <li><?php echo $this->MyHtml->userlink('Browse Events', array('controller'=>'All', 'action'=>'index'), array('class'=>'user-link'), '/products'); ?></li>
+					 <li><?php echo $this->MyHtml->userlink('Browse Artistes', array('controller'=>'All', 'action'=>'index'), array('class'=>'user-link'), '/products'); ?></li>
 				  <?php 
 					if(!$Auth->user())
 					{

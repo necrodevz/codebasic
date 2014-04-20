@@ -9,11 +9,17 @@ class MyTripsController extends AppController
 		parent::beforeFilter();
 		//$this->Auth->allow('get');
 		
-		if($this->Auth->user('role') == 'user') { 
-			$this->Auth->allow('index', 'add', 'remove');
-		}
-		
+		// if($this->Auth->user('role') == 'user') { 
+		// 	$this->Auth->allow('index', 'add', 'remove');
+		// }
+		$this->Auth->allow();
 	}
+
+	public function isAuthorized($user) {
+
+    //die(debug($user));
+    return parent::isAuthorized($user);
+}
 	
 	public function index()
 	{

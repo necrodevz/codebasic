@@ -1,24 +1,9 @@
 <?php
 
-class Category extends AppModel
-{
+class Category extends AppModel {
+   
+    public $belongsTo = 'Product';
 
-	var $actsAs = array('Containable');
-	/**
-	 * Standard validation behaviour
-	 */
-	public $hasMany = array(
-		'Product', 'SubCategory'
-	);
-	
-	var $validate = array(
-		'name' => array(
-			'length' => array(
-				'rule'      => array('notEmpty'),
-				'message'   => 'Please enter valid name',
-				'required'  => true,
-			),
-		),
-	);
-	
+
 }
+

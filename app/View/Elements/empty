@@ -1,0 +1,11 @@
+		<?php  
+		if ($this->Session->read('Auth.User')){
+echo ('I love the world');
+}
+
+else  {
+
+echo ('kaka claat!!');
+}
+
+?>

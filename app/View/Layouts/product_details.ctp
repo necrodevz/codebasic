@@ -91,12 +91,12 @@ source: availableTags
 	  </li>
 	  <li class='divider-vertical'></li>
       <?php if($Auth->user()):?>
-                     <li><?php echo $this->MyHtml->userlink('My Favourites', '/home', array('class'=>'user-link')); ?></li>
+                     <li><?php echo $this->MyHtml->userlink('My Fanlist', '/home', array('class'=>'user-link')); ?></li>
 					<?php else: ?>
-                     <li><?php echo $this->MyHtml->userlink('My Favourites', '/users/login', array('class'=>'user-link')); ?></li>
+                     <li><?php echo $this->MyHtml->userlink('My Fanlist', '/users/login', array('class'=>'user-link')); ?></li>
 					<?php endif; ?>
                      <!--<li class='divider-vertical'></li>-->
-					 <li><?php echo $this->MyHtml->userlink('Browse Events', array('controller'=>'All', 'action'=>'index'), array('class'=>'user-link'), '/products'); ?></li>
+					 <li><?php echo $this->MyHtml->userlink('Browse Artistes', array('controller'=>'All', 'action'=>'index'), array('class'=>'user-link'), '/products'); ?></li>
 				  <?php 
 					if(!$Auth->user())
 					{

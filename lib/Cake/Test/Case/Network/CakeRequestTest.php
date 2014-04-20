@@ -612,8 +612,6 @@ class CakeRequestTest extends CakeTestCase {
 
 /**
  * Test that files in the 0th index work.
- *
- * @return void
  */
 	public function testFilesZeroithIndex() {
 		$_FILES = array(
@@ -1298,7 +1296,6 @@ class CakeRequestTest extends CakeTestCase {
  * - index.php/bananas/eat/tasty_banana
  *
  * @link https://cakephp.lighthouseapp.com/projects/42648-cakephp/tickets/3318
- * @return void
  */
 	public function testBaseUrlWithModRewriteAndIndexPhp() {
 		$_SERVER['REQUEST_URI'] = '/cakephp/app/webroot/index.php';

@@ -6,7 +6,7 @@ body
 {
 	font-family: "News Gothic MT W01","Helvetica Neue","Helvetica","Arial","sans-serif";
 	font-weight: normal;
-	background-color: #eee !important;
+	background: url("../img/binding_dark.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
     color: #555 !important;
 }
 
@@ -1787,13 +1787,13 @@ li.ui-timepicker-selected .ui-timepicker-duration,.ui-timepicker-list li:hover .
 	margin-top: 10px;
 }
 
-.trip-card
-{
-	position: relative;
-	width:300px !important;
-	height:345px;
-	margin-bottom:30px;
-	border:1px solid #999;
+.trip-card {
+    background-color: #000000;
+    border: 1px solid #333333;
+    height: 345px;
+    margin-bottom: 30px;
+    position: relative;
+    width: 300px !important;
 }
 .trip-card-admin
 {
@@ -1804,7 +1804,7 @@ li.ui-timepicker-selected .ui-timepicker-duration,.ui-timepicker-list li:hover .
 }
 
 .maps p  {
-color:#333;
+color:#ccc;
 font-size:16px;
 padding:10px;
 }
@@ -1826,6 +1826,7 @@ padding:10px;
     margin: 0 0 25px;
     overflow: hidden;
     position: relative;
+	border-radius:128px;
 }
 
 
@@ -1867,16 +1868,14 @@ margin-right: 5px;
 
 
  
- .banner .title
-{
-	color: #ffffff;
-	font-family: "Frutiger Neue W01 Md","Frutiger","Helvetica Neue","Helvetica","Arial","sans-serif";
-	font-size: 17px;
-	line-height: 24px;
-	opacity: none;
-	padding: 10px 8px 4px;
-	text-shadow: none;
-	width: 276px;
+.banner .title {
+    color: #FFFFFF;
+    font-family: 'Niconne',cursive;
+    font-size: 34px;
+    line-height: 24px;
+    padding: 35px 8px 4px;
+    text-shadow: none;
+    width: 276px;
 }
 
 .banner .tagline {
@@ -3237,7 +3236,7 @@ select {
     height: 335px;
     position: relative;
 	
-	border: 1px solid #999;
+	border: 1px solid #555;
     height: 435px;
 			/*box-shadow: 0 1px 2px #222;
 	moz-box-shadow: 0 1px 2px #222;
@@ -3301,7 +3300,7 @@ font-size:22px;
 }
 
 .trip-title {
-    background-color: #eee;
+    background-color: #111;
     opacity: 0.85;
     padding-left: 20px;
     position: absolute;
@@ -3360,7 +3359,6 @@ font-size:22px;
 
 .span8 {
     width: 620px !important;
-	float:left;
 }
 
 [class*="span"] {
@@ -3440,7 +3438,7 @@ body.trips.show .trip-title {
 }
 
  .trip-header h1 {
-    color: #333;
+    color: #eee;
     font-family: 'Titillium Web', sans-serif;
     font-size: 27px;
     margin-bottom: 4px;
@@ -3450,7 +3448,7 @@ body.trips.show .trip-title {
 }
 
 .trip-header-prop {
-    color: #333;
+    color: #999;
     float: left;
     padding-bottom: 10px;
     padding-right: 20px;
@@ -3515,14 +3513,13 @@ width:55px !important;
     width: 100%;
 }
 
-.framed2-flat
-{
-    border-radius: 1px 1px 1px 1px;
-	border: 1px solid #333;
+.framed2-flat {
+    background-color: #111111;
+    border: 1px solid #555555;
+    border-radius: 1px;
+    margin-bottom: 20px;
     min-height: 335px;
-	background-color:#eee;
-	margin-bottom:20px;
-	opacity:0.85;
+    opacity: 0.85;
 }
 
 .framed2-full
@@ -3542,9 +3539,9 @@ border-radius:2px;
 
 .framed2
 {
-	background-color: #eee;
+	background-color: #111;
 	opacity:0.85;
-	border: 1px solid #999;
+	border: 1px solid #555;
 	border-radius: 2px;
 	display: block;
 	moz-border-radius: 2px;
@@ -3553,13 +3550,13 @@ border-radius:2px;
 
 .framed2-header {
     background-repeat: repeat-x;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #555;
     border-radius: 4px 4px 0 0;
     min-height: 20px;
     padding: 19px;
-	font-size:22px;
+	font-size:29px;
 	font-family:'Raleway', sans-serif;
-	color:#333;
+	color:#eee;
 }
 
 tr  {
@@ -3964,21 +3961,21 @@ font-family: 'Oswald', sans-serif;
 padding:10px;
 }
 
-.product_title h5  {
-font-family: lato;
-color: #666;
-padding-top: 13px;
+.product_title h5 {
+    color: #999999;
+    font-family: lato;
+    font-size: 17px;
+    font-weight: 100;
+    padding-top: 13px;
 }
 
 .filter {
-background-color: #000;
-position: absolute;
-width: 100%;
-height: 35px;
-top: 50px;
-left:0;
+    height: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 257px;
 }
-
 .navbar .nav {
 position: relative;
 display: block;
@@ -4100,15 +4097,80 @@ width:1020px;
  padding-top:80px;
 }
 
-.framed2-header h3  {
-color:#333 !important;
-font-family: Raleway;
+.framed2-header h3 {
+    color: #EEEEEE !important;
+    font-family: Raleway;
+    font-size: 36px !important;
+    font-weight: normal !important;
 }
 
 .trip-editor-description p  {
-color:#333 !important;
+color:#ccc !important;
 }
 
 .trip-framed-header  {
-color:#333;
+color:#ccc !important;
+}
+
+
+.edit-pro {
+    margin-left: 57px !important;
+    padding: 10px 60px !important;
+    position: relative !important;
+    top: 24px !important;
+}
+
+
+.fa-choice {
+    font-size: 88px;
+    margin-left: 99px;
+	color:#ddd;
+}
+
+.fa-choice:hover  {
+transitions:0.5s;
+font-size:200px;
+position:absolute;
+}
+
+.select-cont  {
+padding-top:100px;
+margin-bottom:510px;
+}
+
+.select-head  {
+font-family: 'Raleway';
+text-align:center;
+color:#eee;
+}
+
+.select-cont-child  {
+border-right:1px solid #555;
+margin-top:103px;
+}
+
+.ma  {
+border-left:1px solid #555;
+}
+
+#update_user .controls  {
+margin-left:50px !important;
+}
+
+.sign  {
+background-color:#111 !important;
+}
+
+#update_user .form-actions  {
+padding-left:50px !important;
+}
+
+#update_user .form-actions {
+background-color:#111 !important;
+}
+
+.header-sign h3  {
+font-family: 'Raleway';
+font-size:32px;
+color:#aaa;
 }

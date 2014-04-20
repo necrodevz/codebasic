@@ -1,125 +1,53 @@
-<div class="filter">
-   <div class="header-prof">
-      <h3>My Profile</h3>
-   </div>
-</div>
+<div style="margin-top:80px"></div>
 
-<?php echo $this->Form->create('User', array('class'=>'form-horizontal', 'enctype'=>'multipart/form-data', 'id'=>'update_user',
-				'inputDefaults' => array(
-					'format' => array('before', 'label', 'between', 'input', 'error', 'after'),
-					'div' => array('class' => 'control-group'),
-					'label' => array('class' => 'control-label'),
-					'between' => '<div class="controls">',
-					'after' => '</div>',
-					'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')),
-				))); ?>
-	<?php echo $this->element('save_changes'); ?>
-   <div class='event-span10 center' style="margin-top:142px">
-	  <div class='offset1'>
-		 <div class=''>
-			<div class='row' style='margin-bottom:20px'>
-			   <div class='span5'>
-				  <?php 
-				  
-					echo $this->Form->input('first_name',array('size'=>30, 'maxlength'=>30, 'class'=>'required', 'placeholder'=>'First name',
-						'label' => false,
-					)); 
-					
-					echo $this->Form->input('last_name',array('size'=>30, 'maxlength'=>30, 'class'=>'required', 'placeholder'=>'Last name',
-						'label' => false,
-					)); 
-					
-					// echo $this->Form->input('Profile.company_name',array('size'=>30, 'maxlength'=>30, 'class'=>'required',
-						// 'label' => array('text' => 'Company Name', 'class' => 'control-label'),
-					// )); 
-					
-					// echo $this->Form->input('email',array('size'=>30, 'maxlength'=>30, 'class'=>'required email',
-						// 'label' => array('class' => 'control-label'),
-					// ));
-				?>
-				  <div class=" control-group">
-					 <div class="controls">
-						<?php 
-						  
-							echo $this->Form->input('Profile.phone',array(
-								'size'=>30, 
-								'maxlength'=>30,
-								'label' => false,
-								'div' => false,
-								'between' => false,
-								'after' => false,
-								'placeholder'=>'Phone number',
-								'class' => 'required',
-							)); 
-						?>
-					 </div>
-				  </div>
-				  
-				  				
-				 <?PHP echo $this->Form->input('Profile.zone_id',array(
-											'type'=>'select', 
-											'label' => false,
-											'class'=>'span4',
-											'options' => $zones													
-											)
-										);
-				
-			  ?>
-			   </div>
-			   
-			   <div class="profile-img">
-			     <div class="add-img">
-				 <a href="#"><i class="icon-plus icon-white"></i></a>
-				 </div>
-			   </div>
-			   
-			</div>
-			
-
-			
-
-			  
-				<?PHP // echo $this->Form->input('Profile.about_me',
-					// array(
-					// 'size'=>40, 
-					// 'maxlength'=>1000, 
-					// 'class'=>'span6', 
-					// 'type'=>'textarea',
-					// 'placeholder'=>'(Optional)',
-					// 'label' => array('class' => 'control-label'),
-					// )
-				// ); 
-				
-				// echo $this->Form->input('Profile.languages',
-					// array(
-					// 'size'=>30, 
-					// 'maxlength'=>30, 
-					// 'class'=>'span6',
-					// 'placeholder'=>'(Optional)',
-					// 'label' => array('class' => 'control-label'),
-					// )
-				// ); ?>
-				
-
-			  
-			<!--<div class=" control-group">
-			   <label class="control-label">Email Settings</label>
-			   <div class="controls"><label class='checkbox'>
-				  <input id="user_send_draft_reminders" name="user[send_draft_reminders]" type="hidden" value="0" />
-				  <input checked="checked" id="user_send_draft_reminders" name="user[send_draft_reminders]" type="checkbox" value="1" />
-				  Send reminders about drafted experiences.
-				  </label>
-			   </div>
-			</div>-->
-			<div class='form-actions'>
-			   <button class="btn btn-success btn-large">
-			   <i class="icon-white icon-ok"></i>
-			   Save
-			   </button>
-			</div>
-		 </div>
-	  </div>
-   </div>
-   <hr class='no-show'>
-   <hr class='no-show'>
-</form>
+<div class="container-fluid">
+<div class="users-list">
+<h1>Users</h1>
+<table class="users-table">
+    <thead>
+		<tr>
+			<th><?php echo $this->Form->checkbox('all', array('name' => 'CheckAll',  'id' => 'CheckAll')); ?></th>
+			<th><?php echo $this->Paginator->sort('username', 'Username');?>  </th>
+			<th><?php echo $this->Paginator->sort('email', 'E-Mail');?></th>
+			<th><?php echo $this->Paginator->sort('created', 'Created');?></th>
+			<th><?php echo $this->Paginator->sort('modified','Last Update');?></th>
+			<th><?php echo $this->Paginator->sort('role','Role');?></th>
+			<th><?php echo $this->Paginator->sort('status','Status');?></th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>						
+		<?php $count=0; ?>
+		<?php foreach($users as $user): ?>				
+		<?php $count ++;?>
+		<?php if($count % 2): echo '<tr>'; else: echo '<tr class="zebra">' ?>
+		<?php endif; ?>
+			<td><?php echo $this->Form->checkbox('User.id.'.$user['User']['id']); ?></td>
+			<td><?php echo $this->Html->link( $user['User']['username']  ,   array('action'=>'edit', $user['User']['id']),array('escape' => false) );?></td>
+			<td style="text-align: center;"><?php echo $user['User']['email']; ?></td>
+			<td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['created']); ?></td>
+			<td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['modified']); ?></td>
+			<td style="text-align: center;"><?php echo $user['User']['role']; ?></td>
+			<td style="text-align: center;"><?php echo $user['User']['status']; ?></td>
+			<td >
+			<?php echo $this->Html->link(    "Edit",   array('action'=>'edit', $user['User']['id']) ); ?> | 
+			<?php
+				if( $user['User']['status'] != 0){ 
+					echo $this->Html->link(    "Delete", array('action'=>'delete', $user['User']['id']));}else{
+					echo $this->Html->link(    "Re-Activate", array('action'=>'activate', $user['User']['id']));
+					}
+			?>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+		<?php unset($user); ?>
+	</tbody>
+</table>
+<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
+<?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
+<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
+</div>	
+</div>			
+<?php echo $this->Html->link( "Add A New User.",   array('action'=>'add'),array('escape' => false) ); ?>
+<?php echo $this->Html->link( "Back To Dashboard",   array('controller'=>'dashboards', 'action'=>'index'),array('escape' => false) ); ?>
+<br/>

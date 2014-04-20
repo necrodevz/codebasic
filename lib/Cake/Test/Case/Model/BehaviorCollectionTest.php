@@ -476,7 +476,6 @@ class BehaviorCollectionTest extends CakeTestCase {
 /**
  * Test load() with enabled => false
  *
- * @return void
  */
 	public function testLoadDisabled() {
 		$Apple = new Apple();
@@ -489,8 +488,6 @@ class BehaviorCollectionTest extends CakeTestCase {
 
 /**
  * Tests loading aliased behaviors
- *
- * @return void
  */
 	public function testLoadAlias() {
 		$Apple = new Apple();
@@ -1192,8 +1189,6 @@ class BehaviorCollectionTest extends CakeTestCase {
 
 /**
  * Test that behavior priority
- *
- * @return void
  */
 	public function testBehaviorOrderCallbacks() {
 		$model = ClassRegistry::init('Orangutan');

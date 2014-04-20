@@ -1,0 +1,43 @@
+
+		<div class="banner-container">
+			<div class="banner">
+						<?php echo $this->Session->flash(); ?>
+			    <div class="login-front">
+				   <div class="login-header">
+				       Login
+				   </div>
+			<?php echo $this->Form->create('User', array(
+				'class' => '',
+				'id'=>'update_user',
+				'inputDefaults' => array(
+					'format' => array('before', 'label', 'between', 'input', 'error', 'after'),
+					'label' => false,
+					'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')),
+				)));?>
+
+			<?php echo $this->Form->input('username', array(
+				'label' => false, 'placeholder'=>'Username', 'class'=>'form-control', 'div'=>'form-group'
+			)); ?>
+			
+			<?php echo $this->Form->input('password', array('size'=>30,
+				'label' => false,'placeholder'=>'Password', 'class'=>'form-control', 'div'=>'form-group'
+			)); ?>
+			
+			<?php echo $this->Form->submit('Login', array('type'=>'submit',
+						'class' => 'btn btn-success',
+						'div' =>'form-group',
+						'label' => false
+				)); ?>	
+			</form>
+			
+			 
+			<div class="signup-front">Don't have an account? <span><?php echo $this->Html->link('Sign Up', array('controller'=>'users', 'action'=>'add'), array('class'=>'btn btn-info')); ?></span></div>
+				</div>
+				
+				<div class="banner-text-div">
+				     <h1 class="banner-text">Music Connections and Exposure</h1>
+				</div>
+
+			</div>
+			
+			</div>

@@ -1,0 +1,394 @@
+h3 > a,
+a h1,
+a h2,
+a h3,
+a h4,
+a h5,
+a h6 {
+	color:inherit;
+} {
+	color:inherit;
+}
+
+a:hover,
+.widget h5 a:hover,
+.read-more,
+.widget-text p a,
+.text-red,
+.event-details .event-title a:hover,
+.breadcrumb > li:last-child a,
+.heading a:hover,
+
+.blog-links li a:hover,
+.blog-detail blockquote p,
+
+.user-comments .comment-box strong,
+.reply-link:hover,
+
+.picSlide li a:hover,
+.picSlide li a.title:hover,
+.picSlide li a.title:hover h4,
+.light .picSlide li a:hover,
+.picSlide li .btm a:hover,
+.light .picSlide li a.title:hover,
+.light .picSlide li a.title:hover h4,
+
+.albums li a:hover,
+.light .albums li a:hover,
+.music-links a:hover,
+.light .widget h5 a:hover,
+.da-slide .da-link,
+.carousel-box a:hover {
+	color:#e33a2c;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.bullet-arrow li:hover,
+.bullet-arrow li:hover a,
+.bullet-arrow li a:hover,
+.widget_nav_menu li:hover,
+.widget_nav_menu li:hover a,
+.widget_nav_menu li a:hover,
+.widget_pages li:hover,
+.widget_pages li:hover a,
+.widget_pages li:hover a,
+.widget_rss li:hover,
+.widget_rss li:hover a,
+.widget_rss li a:hover,
+.widget_archive li:hover,
+.widget_archive li:hover a,
+.widget_archive li a:hover,
+.widget_categories li:hover,
+.widget_categories li:hover a,
+.widget_categories li a:hover,
+.widget_recent_entries li:hover,
+.widget_recent_entries li:hover a,
+.widget_recent_entries li a:hover,
+.widget_links li:hover,
+.widget_links li:hover a,
+.widget_links li a:hover,
+.menu > li:hover > a,
+.menu > li.active > a,
+.menu > li li a,
+.tweet-bar li,
+.sb-ads a .ad-content,
+.widget h5 a,
+.widget_tag_cloud .tagcloud a,
+.heading a,
+.blog-links li,
+.blog-links li a,
+.blog-box .blog-info-strip,
+.bottom .nav > li > a:hover,
+.music-links a,
+.event-title a,
+#wp-calendar tbody td:hover {
+	color:#ffffff;
+}
+
+.tp-bar .logo,
+.tp-up,
+.menu-bar li li:hover,
+.menu-bar li li ul,
+.bullet-arrow li:hover,
+.widget_nav_menu li:hover,
+.widget_nav_menu ul.menu li:hover,
+.widget_rss li:hover,
+.widget_archive li:hover,
+.widget_categories li:hover,
+.light .widget_categories li:hover,
+.widget_recent_entries li:hover,
+.widget_links li:hover,
+.bg-red,
+.light .event-details .event-desc a.location.active,
+.sb-ads a .ad-content,
+.widget-tweets blockquote.bg-red,
+span.file_upload em,
+.btn-red,
+.pagination ul > .active > a,
+.pagination ul > .active > span,
+.pagination ul > .active > a:hover,
+.pagination ul > .active > span:hover,
+.event-details .event-desc a.active,
+.events li .location-map,
+.widget_tag_cloud .tagcloud a,
+.dialog-overlay,
+.slide-content,
+#wp-calendar tbody td:hover {
+	background: rgba(0, 0, 0, 0.91);
+}
+
+.btn-expand {
+	background-color:#181818;
+}
+.picSlide li a {
+	color:#8d8d8d;
+}
+
+.menu-bar {
+	background-color:#ffffff;
+}
+.menu > li > a {
+	color:#000000;
+}
+
+.menu > li:hover,
+.menu > li.active,
+.menu-bar li li ul li:hover,
+.menu li ul {
+	background-color:rgb(0,0,0);	
+	background-color:rgba(0,0,0,0.9);
+}
+
+ul.events li,
+.event-details,
+.blog-box,
+.pagination ul > li > a,
+.pagination ul > li > span,
+.blog-box .blog-info-strip,
+.social-bar {
+	background-color:#141312;
+}
+.bottom .nav > li > a {
+	color:#595959;
+}
+
+.widget-tweets blockquote.bg-red:after {
+	border-top: 14px solid #c50b0b;
+}
+
+.bullet-arrow li,
+.widget_nav_menu li,
+.widget_rss li,
+.widget_archive li,
+.widget_categories li,
+.widget_pages li,
+.widget_recent_entries li,
+.widget_links li,
+#wp-calendar tbody td {
+	background-color:#191919;
+}
+.bullet-arrow li a,
+.widget_nav_menu li a,
+.widget_rss li a,
+.widget_archive li a,
+.widget_categories li a,
+.widget_pages li a,
+.widget_links li a,
+.widget_recent_entries li a {
+	color:#535353;
+}
+.footer,
+.user-control {
+	background-color:rgb(0,0,0);
+	background-color:rgba(0,0,0,0.5);
+}
+
+.contents {
+	color:#686868;
+}
+
+ul.contact-matter li,
+ul.contact-matter a {
+	color:#b3b3b3;
+}
+
+
+
+/*** Player Skin ***/
+a.jp-play,
+a.jp-pause,
+a.jp-stop,
+a.jp-previous,
+a.jp-next,
+
+.mejs-controls .mejs-play button,
+.mejs-controls .mejs-pause button,
+.mejs-next button,
+.mejs-previous button,
+.mejs-fullscreen-button button,
+.mejs-controls .mejs-volume-button .mejs-volume-slider {
+	background-color:#181818;
+}
+div.jp-seek-bar,
+div.jp-volume-bar,
+.mejs-time-rail .mejs-time-total,
+.mejs-horizontal-volume-total {
+	background-color:#1e1e1e;
+}
+div.jp-play-bar,
+div.jp-volume-bar-value,
+.mejs-time-rail .mejs-time-current,
+.mejs-horizontal-volume-current,
+.mejs-horizontal-volume-current {
+	background-color:#e33a2c;
+	border-color:#000000;
+}
+div.jp-interface,
+.mejs-volume-button button,
+.mejs-currenttime-container,
+.mejs-layers,
+.mejs-duration-container,
+.breadcrumb > li a,
+.widget-contact p,
+.widget_widget-contact p,
+.picSlide li a,
+.albums li a {
+	color:#ffffff;
+}
+
+div.jp-playlist li,
+.alert,
+.event-details .event-head a.add-event,
+.close,
+.bread-bar,
+.breadcrumb,
+.author,
+.user-comments li .comment-box,
+.dialog-block {
+	background-color:#090908;
+}
+div.jp-playlist a:hover,
+div.jp-playlist a.jp-playlist-current {
+	color:#e33a2c;
+}
+div.jp-playlist li,
+div.jp-playlist a {
+	color: #ffffff;
+}
+
+
+@media (max-width: 767px) {
+	body {
+		background-color:#343230;
+	}
+	.event-details .event-desc a.location {
+		background-color:#000000;
+		background-position:21px -1279px;
+	}
+	.event-details .event-desc a.active {
+		background-color:#e33a2c;
+	}
+	.contents,
+	.user-comments .comment-box p {
+		color:#8a8a8a;
+	}
+}
+@media (max-width: 480px) {
+	.user-comments li .comment-box:before {
+		border-color:transparent transparent #090908 transparent;
+	}
+}
+
+.search-query-main {
+background-color: #111 !important;
+border: 1px solid #000!important;
+width: 860px !important;
+height: 50px !important;
+box-shadow: 2px 3px 2px #111 inset !important;
+font-size:22px !important;
+font-family:Raleway;
+color:#aaa;
+}
+
+.nav>li {
+position: relative;
+display: inline-block !important;
+} 
+
+.nav>li>a:hover, .nav>li>a:focus {
+text-decoration: none;
+background-color: transparent !important;
+color:#fff;
+}
+
+.alert h4 {
+    color: #ddd !important;
+	font-family:Raleway;
+    display: inline-block;
+    margin-right: 74%;
+}
+
+.title h4  {
+font-family: 'Lato', sans-serif;
+}
+
+.login {
+position: absolute;
+z-index: 999999;
+background: rgba(0,0,0,0.9);
+right: 1px;
+width: 300px;
+top: 260px;
+padding: 15px;
+}
+
+.login .login-input {
+background-color: #111 !important;
+border: 1px solid #000;
+box-shadow: 0px 1px 1px #000 inset;
+height: 44px;
+font-family: Raleway;
+font-size: 20px;
+}
+
+.login .login-input:focus {
+background-color: #111 !important;
+border: 1px solid #3579DC !important;
+box-shadow: 0px 1px 1px transparent inset;
+height: 44px;
+font-family: Raleway;
+font-size: 20px;
+}
+
+.btn-submit {
+background-color: #398439 !important;
+padding: 10px 116px !important;
+}
+
+.btn-larg  {
+background-color:#3579DC !important;
+padding: 10px 109px !important;
+}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+font-family: Raleway !important;
+font-size: 28px !important;
+}
+
+.ui-autocomplete {
+border: 1px solid #0a0a0a;
+background: #111 !important;
+color: #aaa !important;
+margin-top:6px !important;
+}
+
+.ui-autocomplete a {
+color: #ccc !important;
+font-family: Raleway !important;
+font-size: 20px !important;
+}
+
+
+.ui-menu-item a  {
+padding:8px !important;
+border:1px solid transparent !important;
+}
+
+
+.ui-menu-item a:hover  {
+background:#000 !important;
+padding:8px !important;
+border:1px solid transparent !important;
+transition:0.7s;
+-webkit-transition:0.7s;
+-moz-transition:0.7s;
+}
+
+.ui-widget-content  {
+border:1px solid #0a0a0a !important;
+}

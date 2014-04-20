@@ -1418,8 +1418,7 @@ class FormHelper extends AppHelper {
 				'id' => $options['id'] . '_',
 				'name' => $options['name'],
 				'value' => ($options['hiddenField'] !== true ? $options['hiddenField'] : '0'),
-				'form' => isset($options['form']) ? $options['form'] : null,
-				'secure' => false,
+				'secure' => false
 			);
 			if (isset($options['disabled']) && $options['disabled']) {
 				$hiddenOptions['disabled'] = 'disabled';
@@ -1545,10 +1544,7 @@ class FormHelper extends AppHelper {
 		if ($hiddenField) {
 			if (!isset($value) || $value === '') {
 				$hidden = $this->hidden($fieldName, array(
-					'form' => isset($attributes['form']) ? $attributes['form'] : null,
-					'id' => $attributes['id'] . '_',
-					'value' => '',
-					'name' => $attributes['name']
+					'id' => $attributes['id'] . '_', 'value' => '', 'name' => $attributes['name']
 				));
 			}
 		}
@@ -2012,7 +2008,6 @@ class FormHelper extends AppHelper {
 					'value' => '',
 					'id' => $attributes['id'] . ($style ? '' : '_'),
 					'secure' => false,
-					'form' => isset($attributes['form']) ? $attributes['form'] : null,
 					'name' => $attributes['name']
 				);
 				$select[] = $this->hidden(null, $hiddenAttributes);

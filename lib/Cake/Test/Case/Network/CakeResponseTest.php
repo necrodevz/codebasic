@@ -47,7 +47,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the request object constructor
  *
- * @return void
  */
 	public function testConstruct() {
 		$response = new CakeResponse();
@@ -72,7 +71,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the body method
  *
- * @return void
  */
 	public function testBody() {
 		$response = new CakeResponse();
@@ -85,7 +83,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the charset method
  *
- * @return void
  */
 	public function testCharset() {
 		$response = new CakeResponse();
@@ -99,7 +96,6 @@ class CakeResponseTest extends CakeTestCase {
  * Tests the statusCode method
  *
  * @expectedException CakeException
- * @return void
  */
 	public function testStatusCode() {
 		$response = new CakeResponse();
@@ -115,7 +111,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the type method
  *
- * @return void
  */
 	public function testType() {
 		$response = new CakeResponse();
@@ -138,7 +133,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the header method
  *
- * @return void
  */
 	public function testHeader() {
 		$response = new CakeResponse();
@@ -187,7 +181,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the send method
  *
- * @return void
  */
 	public function testSend() {
 		$response = $this->getMock('CakeResponse', array('_sendHeader', '_sendContent', '_setCookies'));
@@ -233,9 +226,7 @@ class CakeResponseTest extends CakeTestCase {
 
 /**
  * Tests the send method and changing the content type
- *
  * @dataProvider charsetTypeProvider
- * @return void
  */
 	public function testSendChangingContentType($original, $expected) {
 		$response = $this->getMock('CakeResponse', array('_sendHeader', '_sendContent', '_setCookies'));
@@ -255,7 +246,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the send method and changing the content type to JS without adding the charset
  *
- * @return void
  */
 	public function testSendChangingContentTypeWithoutCharset() {
 		$response = $this->getMock('CakeResponse', array('_sendHeader', '_sendContent', '_setCookies'));
@@ -277,7 +267,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the send method and changing the content type
  *
- * @return void
  */
 	public function testSendWithLocation() {
 		$response = $this->getMock('CakeResponse', array('_sendHeader', '_sendContent', '_setCookies'));
@@ -295,7 +284,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the disableCache method
  *
- * @return void
  */
 	public function testDisableCache() {
 		$response = new CakeResponse();
@@ -311,7 +299,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the cache method
  *
- * @return void
  */
 	public function testCache() {
 		$response = new CakeResponse();
@@ -384,7 +371,6 @@ class CakeResponseTest extends CakeTestCase {
  * Tests the httpCodes method
  *
  * @expectedException CakeException
- * @return void
  */
 	public function testHttpCodes() {
 		$response = new CakeResponse();
@@ -429,7 +415,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the download method
  *
- * @return void
  */
 	public function testDownload() {
 		$response = new CakeResponse();
@@ -443,7 +428,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the mapType method
  *
- * @return void
  */
 	public function testMapType() {
 		$response = new CakeResponse();
@@ -460,7 +444,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the outputCompressed method
  *
- * @return void
  */
 	public function testOutputCompressed() {
 		$response = new CakeResponse();
@@ -498,7 +481,6 @@ class CakeResponseTest extends CakeTestCase {
 /**
  * Tests the send and setting of Content-Length
  *
- * @return void
  */
 	public function testSendContentLength() {
 		$response = $this->getMock('CakeResponse', array('_sendHeader', '_sendContent'));

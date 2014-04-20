@@ -1,114 +1,35 @@
-<?php echo $this->element('navbar'); ?>
-   <head>
-	<style>	
-			 #map_canvas {
-        width: 606px;
-        height: 200px;
-      }
 
-     
-    </style>
 
-    </head>
-	
 
-<?php echo $this->Form->create('Product', array('class'=>'form-horizontal', 'id'=>'update_trip',
-				'inputDefaults' => array(
-					'format' => array('before', 'label', 'between', 'input', 'error', 'after'),
-					'div' => array('class' => 'control-group'),
-					'label' => array('class' => 'control-label'),
-					'between' => '<div class="controls">',
-					'after' => '</div>',
-					'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')),
-				))); ?>
-
- <div class='add'>
-	<div class='offset1'>
-	   <div class='framed2'>
-		  <div class='framed2-header'>
-			 <p>
-				Create An Artiste's Profile.
-			 </p>
-		  </div>
-		  <div class="row" style="margin-top:10px;">
-			  <?php 
-			  
-				echo $this->Form->input('name',array('size'=>40, 'maxlength'=>40,
-					'label' => array('text' => 'Product Name', 'class' => 'control-label'),
-				)); 
-				
-				echo $this->Form->input('description', array('id' => 'trip_description', 'type'=>'textarea', 'cols'=>40, 'rows'=>6,'maxlength'=>1000,
-					'label' => array('class' => 'control-label'),
-				)); 
-				
-				echo $this->Form->input('fav_song', array('id' => 'trip_description', 'text'=>'Favourite Song', 'type'=>'textarea', 'cols'=>40, 'rows'=>6,'maxlength'=>1000,
-					'label' => array('class' => 'control-label'),
-				)); 
-
-				echo $this->Form->input('role_model', array('id' => 'trip_description', 'type'=>'textarea', 'cols'=>40, 'rows'=>6,'maxlength'=>1000,
-					'label' => array('class' => 'control-label'),
-				)); 
-				
-			  ?>
-				 <div class=" control-group">
-					<label class="control-label">Main Category</label>
-					<div class="controls">
-						 <?php
-							 echo $this->Form->input('category_id',array(
-														'type'=>'select', 
-														'label' => false,
-														'div' => false,
-														'between' => false,
-														'after' => false, 
-														'style' => 'width: 150px',
-														'options' => $categories,
-														'id' => 'category_id'
-														)
-													);
-						 ?>
-
-					</div>
-				 </div>
-				<?php 
-				  
-					echo $this->Form->input('address',array('size'=>30, 'maxlength'=>30,
-						'label' => array('text' => 'Address, City', 'class' => 'control-label'),
-						'class' => 'required span6',
-					)); 
-				?>
-				 
-						
-						<?php 
-			  
-				echo $this->Form->input('youtube',array('size'=>40, 'maxlength'=>40,
-					'label' => array('text' => 'Youtube', 'class' => 'control-label'),
-				)); 
-						?>
-
-						<?php 
-			  
-				echo $this->Form->input('facebook',array('size'=>40, 'maxlength'=>40,
-					'label' => array('text' => 'Facebook', 'class' => 'control-label'),
-				)); 
-						?>
-						
-						<?php 
-			  
-				echo $this->Form->input('twitter',array('size'=>40, 'maxlength'=>40,
-					'label' => array('text' => 'Twitter', 'class' => 'control-label'),
-				)); 
-						?>						
-			</div>
-			 <div class='form-actions'>
-				<button class="btn btn-info">Save</button>
-			 </div>
-		  </div>
-	   </div>
+<div class="users-parent">
+    <div class="form-add-artiste">
+       <div class="form-header">
+        Complete Profile
+       </div>
+      <?php echo $this->Form->create('Product', array('class'=>'form-horizontal'));?>
+        <?php echo $this->Form->input('name', array('placeholder'=>'Your Name', 'div'=>'form-group', 'label'=>false, 'class'=>'form-control'));
+		echo $this->Form->textarea('summary', array('placeholder'=>'Describe yourself, your history in the music business and more', 'div'=>'form-group', 'label'=>false, 'class'=>'form-control'));
+		echo $this->Form->textarea('role_model', array('placeholder'=>'Your role model in life, start this as: My role model is...', 'div'=>'form-group', 'label'=>false, 'class'=>'form-control'));
+		echo $this->Form->textarea('fav_song', array('placeholder'=>'Your favourite song, start this as: My favourite song is...', 'div'=>'form-group', 'label'=>false, 'class'=>'form-control', 'rows'=>'6', 'cols'=>'5'));
+		echo $this->Form->input('trailer', array('placeholder'=>'Put the last 11 letters and digits of your youtube video url here', 'div'=>'form-group', 'label'=>false, 'class'=>'form-control'));
+        echo ('<div class="ui-widget">');
+        echo $this->Form->input('genre_id', array(
+          'type' => 'select',
+          'options' => $genres,
+          'empty' => 'Your Music Genre',
+	      'class'=>'form-control',
+	      'id' => 'combobox',
+	      'label'=>false,
+	      'div'=>'form-group',
+           ));
+          echo ('</div>');
+		echo ('<div class="btn-group"> ');
+		echo $this->Form->submit('Continue', array('class' => 'form-submit btn btn-default',  'title' => 'click to continue to add photos') ); 
+      ?>
 	</div>
-	<hr class='no-show'>
-	</div>
-</form>
+</div>
 
-<?php echo $this->element('save_changes'); ?>
+</script>
+
 
 
